@@ -95,6 +95,18 @@ if (serviceGrid && window.ArapearlySiteData?.services) {
 document.querySelectorAll("select").forEach((select) => {
   if (select.closest(".custom-select-wrapper")) return;
 
+  // Pre-select based on URL query parameter if present (e.g. ?interest=MCP+Security)
+  const urlParams = new URLSearchParams(window.location.search);
+  const paramInterest = urlParams.get("interest") || urlParams.get("service");
+  if (paramInterest && select.name === "interest") {
+    const foundIdx = Array.from(select.options).findIndex(
+      (opt) => opt.text.toLowerCase() === paramInterest.toLowerCase() || opt.value.toLowerCase() === paramInterest.toLowerCase()
+    );
+    if (foundIdx !== -1) {
+      select.selectedIndex = foundIdx;
+    }
+  }
+
   const wrapper = document.createElement("div");
   wrapper.className = "custom-select-wrapper";
   select.parentNode.insertBefore(wrapper, select);

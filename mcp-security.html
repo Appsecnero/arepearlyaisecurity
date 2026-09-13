@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>MCP Security | Arapearly AI Security</title>
-    <meta name="description" content="MCP security assessments for servers, tools, authentication, authorization, trust, validation, and data exposure." />
+    <title>MCP Security Assessment & Advisory | Arapearly AI Security</title>
+    <meta name="description" content="Model Context Protocol (MCP) security assessments for servers, tool boundaries, authentication, excessive agency, and sensitive data exposure." />
     <link rel="canonical" href="https://arapearly.ai/mcp-security" />
     <link rel="stylesheet" href="styles.css" />
     <script defer src="script.js"></script>
@@ -12,12 +12,128 @@
   <body>
     <header class="site-header"><a class="brand" href="index.html"><span class="brand-mark"><img src="assets/logo-arapearly.svg" alt="Arapearly logo" /></span><span><strong>ARAPEARLY</strong><small>AI SECURITY</small></span></a><button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button><nav id="site-nav" class="site-nav"><a href="index.html">Home</a><a href="services.html">Services</a><a href="solutions.html">Solutions</a><a href="approach.html">Approach</a><a href="resources.html">Resources</a><a href="about.html">About</a><a href="contact.html">Contact</a><a class="nav-cta" href="ai-security-assessment.html">Request Assessment</a></nav></header>
     <main>
-      <section class="page-hero section"><div class="card reveal"><p class="eyebrow">Deep dive</p><h1>Secure MCP before it becomes a hidden trust shortcut.</h1><p class="lead">Strengthen tool trust boundaries, enforce authentication and authorization, and reduce unintended data exposure across MCP integrations.</p></div></section>
+      <section class="page-hero section">
+        <div class="card reveal">
+          <p class="eyebrow">Deep dive · Model Context Protocol</p>
+          <h1>Secure MCP before it becomes a hidden trust shortcut.</h1>
+          <p class="lead">The Model Context Protocol (MCP) connects LLMs and autonomous agents directly to enterprise databases, tools, developer environments, and internal APIs. We help engineering and security teams identify MCP vulnerabilities, enforce least privilege, and prevent lateral movement or data exfiltration.</p>
+          <div class="cta-row" style="margin-top: 24px;">
+            <a class="button primary" href="contact.html?interest=MCP+Security">Request MCP Assessment</a>
+            <a class="button secondary" href="mailto:frankb@arapearlysecurity.net?subject=MCP%20Security%20Assessment%20Inquiry">Email Our Specialists</a>
+          </div>
+        </div>
+      </section>
+
       <section class="section grid-2">
-        <article class="card reveal"><h2>What we assess</h2><ul class="check-list"><li>MCP servers</li><li>Tools</li><li>Authentication</li><li>Authorization</li><li>Trust</li><li>Input validation</li><li>Data exposure</li><li>Secrets</li><li>Logging</li></ul></article>
-        <article class="card reveal"><h2>Primary CTA</h2><p>Use the page to drive requests for an MCP Security Assessment and show that the company understands this emerging risk area.</p><a class="button primary" href="contact.html">Request an MCP Security Assessment</a></article>
+        <article class="card reveal">
+          <p class="card-kicker">Risk Overview</p>
+          <h2>The MCP Threat Landscape</h2>
+          <p>Model Context Protocol standardizes how models execute functions and query data. However, exposing internal tools to non-deterministic LLMs introduces high-risk attack surfaces:</p>
+          <ul class="check-list">
+            <li><strong>Excessive Agency & Command Execution:</strong> Unbounded tool capabilities that allow arbitrary shell or database execution.</li>
+            <li><strong>Indirect Prompt Injection:</strong> Unsanitized tool outputs that hijack agent execution context and trigger unauthorized downstream calls.</li>
+            <li><strong>Transport Exposure:</strong> Unauthenticated stdio and SSE endpoints vulnerable to local process interception and CSRF-style attacks.</li>
+            <li><strong>Shadow MCP Deployments:</strong> Unmonitored internal servers bypassing corporate firewalls and IAM policies.</li>
+          </ul>
+        </article>
+
+        <article class="card reveal">
+          <p class="card-kicker">Architecture</p>
+          <h2>Why Traditional API Security Isn't Enough</h2>
+          <p>Traditional API security relies on predictable caller intent and rigid schema contracts. In an MCP environment:</p>
+          <ul class="check-list">
+            <li>LLMs determine tool parameters dynamically based on conversational context.</li>
+            <li>Natural language prompts can trick the model into misusing valid credentials.</li>
+            <li>Multi-server tool chaining creates multi-hop privilege escalation paths across decoupled systems.</li>
+            <li>Context windows retain credentials, tokens, and PII unless strictly filtered.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="section">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Scope of Assessment</p>
+          <h2>What We Assess in an MCP Security Audit</h2>
+        </div>
+        <div class="card-grid">
+          <article class="card reveal">
+            <p class="card-kicker">01 / Transport & Endpoints</p>
+            <h3>Server & Transport Security</h3>
+            <p>We review transport isolation across stdio, HTTP, and Server-Sent Events (SSE). We check for process sandboxing, TLS enforcement, and unauthorized network listeners.</p>
+          </article>
+
+          <article class="card reveal">
+            <p class="card-kicker">02 / Identity & Access</p>
+            <h3>Authentication & Authorization</h3>
+            <p>Verification of caller identity propagation, mTLS, OAuth 2.0 token passing, role-based access control (RBAC), and multi-tenant environment boundaries.</p>
+          </article>
+
+          <article class="card reveal">
+            <p class="card-kicker">03 / Tool Boundaries</p>
+            <h3>Tool Scope & Least Privilege</h3>
+            <p>Detailed evaluation of tool schemas, argument sanitization, destructive capability gating, and mandatory human-in-the-loop (HITL) approval gates.</p>
+          </article>
+
+          <article class="card reveal">
+            <p class="card-kicker">04 / Injection Resistance</p>
+            <h3>Prompt & Context Injection Defense</h3>
+            <p>Adversarial testing against poisoned tool responses, malicious schema descriptions, and context pollution designed to manipulate model reasoning.</p>
+          </article>
+
+          <article class="card reveal">
+            <p class="card-kicker">05 / Data & Secrets</p>
+            <h3>Secret Management & Data Exposure</h3>
+            <p>Auditing how API keys, database credentials, and internal schemas are handled, preventing credentials from bleeding into conversation logs or responses.</p>
+          </article>
+
+          <article class="card reveal">
+            <p class="card-kicker">06 / Governance</p>
+            <h3>Audit Logging & Telemetry</h3>
+            <p>Ensuring end-to-end auditability of all tool invocations, parameters, and return values with tamper-evident structured telemetry.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section grid-2">
+        <article class="card reveal">
+          <p class="card-kicker">Methodology</p>
+          <h2>Our 4-Phase Assessment Process</h2>
+          <ol class="step-list">
+            <li><strong>Architecture & Threat Modeling:</strong> Map all MCP servers, client connections, connected tools, and data stores.</li>
+            <li><strong>Adversarial Penetration Testing:</strong> Perform automated and manual exploits against tool schemas, injection vectors, and auth controls.</li>
+            <li><strong>Policy & Guardrail Review:</strong> Test validation layers, approval workflows, and runtime execution constraints.</li>
+            <li><strong>Remediation & Action Plan:</strong> Deliver actionable engineering fixes, schema refactoring advice, and security policies.</li>
+          </ol>
+        </article>
+
+        <article class="card reveal featured">
+          <p class="card-kicker">Take Action</p>
+          <h2>Request an MCP Security Assessment</h2>
+          <p>Get a rigorous, expert-led evaluation of your MCP servers and agent integrations before going to production.</p>
+          <div class="cta-row" style="margin-top: 20px;">
+            <a class="button primary" href="contact.html?interest=MCP+Security">Request Assessment</a>
+            <a class="button secondary" href="mailto:frankb@arapearlysecurity.net?subject=MCP%20Security%20Assessment%20Inquiry">Direct Email</a>
+          </div>
+          <div class="trust-row" style="margin-top: 24px;">
+            <span>Confidential Assessment</span>
+            <span>Comprehensive Report</span>
+            <span>Actionable Fixes</span>
+          </div>
+        </article>
       </section>
     </main>
-    <footer class="site-footer"><div><strong>ARAPEARLY AI SECURITY</strong><p>Secure the AI. Secure the Agent. Secure the Business.</p></div><div class="footer-links"><a href="mailto:hello@arapearlysecurity.net">hello@arapearlysecurity.net</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a></div></footer>
+    <footer class="site-footer">
+      <div>
+        <strong>ARAPEARLY AI SECURITY</strong>
+        <p>Secure the AI. Secure the Agent. Secure the Business.</p>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:frankb@arapearlysecurity.net">frankb@arapearlysecurity.net</a>
+        <a href="mailto:hello@arapearlysecurity.net">hello@arapearlysecurity.net</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </footer>
   </body>
 </html>
