@@ -1,0 +1,11 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Arapearly logo">
+  <defs>
+    <linearGradient id="g1" x1="18" y1="20" x2="112" y2="108" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7ADACD"/>
+      <stop offset="1" stop-color="#88A3FF"/>
+    </linearGradient>
+  </defs>
+  <rect x="14" y="14" width="100" height="100" rx="28" fill="#081521"/>
+  <path d="M64 28L97 98H84L75 78H53L44 98H31L64 28ZM58 68H70L64 55L58 68Z" fill="url(#g1)"/>
+  <path d="M24 72C24 44 43 24 72 24" stroke="url(#g1)" stroke-width="7" stroke-linecap="round" opacity="0.85"/>
+</svg>

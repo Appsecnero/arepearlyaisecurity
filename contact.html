@@ -10,21 +10,25 @@
     <script defer src="script.js"></script>
   </head>
   <body>
-    <header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">A</span><span><strong>ARAPEARLY</strong><small>AI SECURITY</small></span></a><button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button><nav id="site-nav" class="site-nav"><a href="index.html">Home</a><a href="services.html">Services</a><a href="solutions.html">Solutions</a><a href="approach.html">Approach</a><a href="resources.html">Resources</a><a href="about.html">About</a><a href="contact.html">Contact</a><a class="nav-cta" href="ai-security-assessment.html">Request Assessment</a></nav></header>
+    <header class="site-header"><a class="brand" href="index.html"><span class="brand-mark"><img src="assets/logo-arapearly.svg" alt="Arapearly logo" /></span><span><strong>ARAPEARLY</strong><small>AI SECURITY</small></span></a><button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button><nav id="site-nav" class="site-nav"><a href="index.html">Home</a><a href="services.html">Services</a><a href="solutions.html">Solutions</a><a href="approach.html">Approach</a><a href="resources.html">Resources</a><a href="about.html">About</a><a href="contact.html">Contact</a><a class="nav-cta" href="ai-security-assessment.html">Request Assessment</a></nav></header>
     <main>
-      <section class="page-hero section"><div class="card reveal"><p class="eyebrow">Contact</p><h1>Request an assessment or start a consulting conversation.</h1><p class="lead">The form keeps the ask focused on business context, not sensitive operational details.</p></div></section>
+      <section class="page-hero section"><div class="card reveal"><p class="eyebrow">Contact</p><h1>Request an assessment or start a consulting conversation.</h1><p class="lead">Share your goals, timeline, and AI environment, and we will recommend the right next step for your team.</p></div></section>
       <section class="section content-layout">
-        <form class="card form reveal">
+        <form class="card form reveal" action="https://formsubmit.co/frankb@arapearlysecurity.net" method="POST">
+          <input type="hidden" name="_subject" value="New AI Security Inquiry - Arapearly Website" />
+          <input type="hidden" name="_next" value="https://arapearly.com/thank-you.html" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
           <div class="field-grid">
-            <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" /></div>
+            <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" required /></div>
             <div class="field"><label for="company">Company</label><input id="company" name="company" type="text" /></div>
-            <div class="field"><label for="email">Business email</label><input id="email" name="email" type="email" /></div>
+            <div class="field"><label for="email">Business email</label><input id="email" name="email" type="email" required /></div>
             <div class="field"><label for="title">Job title</label><input id="title" name="title" type="text" /></div>
             <div class="field"><label for="size">Company size</label><input id="size" name="size" type="text" placeholder="e.g. 200-1000" /></div>
             <div class="field"><label for="tech">AI technology being used</label><input id="tech" name="tech" type="text" placeholder="LLM app, agent, MCP, RAG, etc." /></div>
           </div>
           <div class="field"><label for="interest">What are you looking for?</label><select id="interest" name="interest"><option>AI Security Assessment</option><option>AI Agent Security</option><option>MCP Security</option><option>AI Supply Chain Security</option><option>Threat Modeling</option><option>Advisory</option><option>Training</option><option>Other</option></select></div>
-          <div class="field"><label for="message">Message</label><textarea id="message" name="message"></textarea></div>
+          <div class="field"><label for="message">Message</label><textarea id="message" name="message" required></textarea></div>
           <button class="button primary" type="submit">Request an Assessment</button>
         </form>
         <aside class="card aside reveal"><h2>Schedule a consultation</h2><p>Add Calendly or another scheduling service here for a 30-minute consultation slot.</p><a class="pill" href="mailto:hello@arapearlysecurity.net">hello@arapearlysecurity.net</a><a class="pill" href="mailto:security@arapearly.ai">security@arapearly.ai</a></aside>
