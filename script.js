@@ -90,3 +90,106 @@ if (serviceGrid && window.ArapearlySiteData?.services) {
 
   serviceGrid.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
 }
+
+// Enhance native select elements into themed glowing custom dropdowns
+document.querySelectorAll("select").forEach((select) => {
+  if (select.closest(".custom-select-wrapper")) return;
+
+  const wrapper = document.createElement("div");
+  wrapper.className = "custom-select-wrapper";
+  select.parentNode.insertBefore(wrapper, select);
+  wrapper.appendChild(select);
+  select.classList.add("custom-select-hidden");
+
+  const trigger = document.createElement("button");
+  trigger.type = "button";
+  trigger.className = "custom-select-trigger";
+  trigger.setAttribute("aria-haspopup", "listbox");
+  trigger.setAttribute("aria-expanded", "false");
+
+  const label = document.createElement("span");
+  label.className = "custom-select-label";
+  label.textContent = select.options[select.selectedIndex]?.text || select.options[0]?.text || "Select an option";
+
+  const icon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  icon.setAttribute("class", "custom-select-icon");
+  icon.setAttribute("viewBox", "0 0 24 24");
+  icon.setAttribute("fill", "none");
+  icon.setAttribute("stroke", "currentColor");
+  icon.setAttribute("stroke-width", "2.5");
+  icon.setAttribute("stroke-linecap", "round");
+  icon.setAttribute("stroke-linejoin", "round");
+  icon.innerHTML = '<polyline points="6 9 12 15 18 9"></polyline>';
+
+  trigger.appendChild(label);
+  trigger.appendChild(icon);
+  wrapper.appendChild(trigger);
+
+  const dropdown = document.createElement("div");
+  dropdown.className = "custom-select-dropdown";
+  dropdown.setAttribute("role", "listbox");
+
+  const options = Array.from(select.options);
+  options.forEach((opt, idx) => {
+    const optBtn = document.createElement("button");
+    optBtn.type = "button";
+    optBtn.className = "custom-select-option" + (idx === select.selectedIndex ? " is-selected" : "");
+    optBtn.setAttribute("role", "option");
+    optBtn.setAttribute("aria-selected", String(idx === select.selectedIndex));
+    optBtn.textContent = opt.text;
+
+    optBtn.addEventListener("click", () => {
+      select.selectedIndex = idx;
+      label.textContent = opt.text;
+      dropdown.querySelectorAll(".custom-select-option").forEach((o) => {
+        o.classList.remove("is-selected");
+        o.setAttribute("aria-selected", "false");
+      });
+      optBtn.classList.add("is-selected");
+      optBtn.setAttribute("aria-selected", "true");
+      closeDropdown();
+      select.dispatchEvent(new Event("change", { bubbles: true }));
+    });
+
+    dropdown.appendChild(optBtn);
+  });
+
+  wrapper.appendChild(dropdown);
+
+  const openDropdown = () => {
+    document.querySelectorAll(".custom-select-wrapper.is-open").forEach((w) => {
+      if (w !== wrapper) {
+        w.classList.remove("is-open");
+        w.querySelector(".custom-select-trigger")?.setAttribute("aria-expanded", "false");
+      }
+    });
+    wrapper.classList.add("is-open");
+    trigger.setAttribute("aria-expanded", "true");
+  };
+
+  const closeDropdown = () => {
+    wrapper.classList.remove("is-open");
+    trigger.setAttribute("aria-expanded", "false");
+  };
+
+  trigger.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (wrapper.classList.contains("is-open")) {
+      closeDropdown();
+    } else {
+      openDropdown();
+    }
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!wrapper.contains(e.target)) {
+      closeDropdown();
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && wrapper.classList.contains("is-open")) {
+      closeDropdown();
+    }
+  });
+});
